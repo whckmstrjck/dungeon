@@ -4,13 +4,13 @@ Dungeoning hard in Pico-8.
 
 ## Controls
 
-⬆️ Move up
-⬇️ Move down
-⬅️ Move left
-➡️ Move right
+- ⬆️ Move up
+- ⬇️ Move down
+- ⬅️ Move left
+- ➡️ Move right
 
-🅾️ TBA
-❎ TBA
+- 🅾️ TBA
+- ❎ TBA
 
 ## To do
 
