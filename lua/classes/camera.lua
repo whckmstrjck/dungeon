@@ -7,13 +7,13 @@ Camera = Class:new({
     local py = player.y * 8 - 64
 
     if x >= px + follow_threshold or x <= px - follow_threshold then
-      x = lerp(x, px, .04)
+      x = lerp(x, px, .08)
     else
       x = px
     end
 
     if y >= py + follow_threshold or y <= py - follow_threshold then
-      y = lerp(y, py, .04)
+      y = lerp(y, py, .08)
     else
       y = py
     end
