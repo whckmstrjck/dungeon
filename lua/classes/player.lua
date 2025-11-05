@@ -21,9 +21,11 @@ Player =
       if dir == 'l' then flipped = true end
       if dir == 'r' then flipped = false end
       if check_collision(_ENV, x + dx, y + dy) then
+        sfx(1)
         last_x = x + dx * .32
         last_y = y + dy * .32
       else
+        sfx(0)
         x += dx
         y += dy
       end
