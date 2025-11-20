@@ -1,6 +1,6 @@
 function _draw()
   cls()
   map()
-  cam:update()
-  player:draw()
+  game.camera:update()
+  game.player:draw()
 end

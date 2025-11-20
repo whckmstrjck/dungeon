@@ -28,6 +28,7 @@ Player = Actor:new({
     if dx < 0 then flipped = true end
     if dx > 0 then flipped = false end
     local collission = check_collision(_ENV, x + dx, y + dy)
+
     if collission == 'wall' then
       sfx(1)
       last_x = x + dx * .32

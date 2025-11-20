@@ -1,3 +1,3 @@
 function _update60()
-  player:update()
+  game.player:update()
 end

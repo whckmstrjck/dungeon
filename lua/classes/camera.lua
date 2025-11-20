@@ -1,6 +1,7 @@
 Camera = Class:new({
   x = 0,
   y = 0,
+  player = nil,
   follow_threshold = 0.5,
   update = function(_ENV)
     local px = player.x * 8 - 64
