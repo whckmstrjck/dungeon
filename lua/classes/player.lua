@@ -13,11 +13,11 @@ Player = Class:new {
   end,
   open_door = function(_ENV, door_x, door_y)
     local door_tile = mget(door_x, door_y)
-    if door_tile == 16 then
-      mset(door_x, door_y, 17)
+    if door_tile == 19 then
+      mset(door_x, door_y, 20)
       sfx(2)
-    elseif door_tile == 18 then
-      mset(door_x, door_y, 19)
+    elseif door_tile == 35 then
+      mset(door_x, door_y, 36)
       sfx(2)
     end
   end,
