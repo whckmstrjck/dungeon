@@ -14,11 +14,14 @@ Dungeoning hard in Pico-8.
 
 ## To do
 
+- [ ] Doors
 - [ ] Buffered movement
 - [ ] Attack
   - [ ] Dummy enemy to attack
   - [ ] Animation
   - [ ] Particles
+- [ ] Enemy class
+  - [ ] Basic movement
 
 ## Done
 
