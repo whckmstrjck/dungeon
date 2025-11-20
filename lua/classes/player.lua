@@ -7,6 +7,12 @@ Player = Actor:new({
     if fget(mget(new_x, new_y)) == 1 then return 'wall' end
     if fget(mget(new_x, new_y)) == 2 then return 'door' end
 
+    for monster in all(G.game.monsters) do
+      if monster.x == new_x and monster.y == new_y then
+        return 'monster', monster
+      end
+    end
+
     return nil
   end,
   open_door = function(_ENV, door_x, door_y)
@@ -31,7 +37,7 @@ Player = Actor:new({
 
     if dx < 0 then flipped = true end
     if dx > 0 then flipped = false end
-    local collission = check_collision(_ENV, x + dx, y + dy)
+    local collission, monster = check_collision(_ENV, x + dx, y + dy)
 
     if collission then
       last_x = x + dx * .32
@@ -42,6 +48,9 @@ Player = Actor:new({
       sfx(1)
     elseif collission == 'door' then
       open_door(_ENV, x + dx, y + dy)
+    elseif collission == 'monster' then
+      -- attack
+      -- monster:take_damage(_ENV, 1)
     else
       sfx(0)
       x += dx
