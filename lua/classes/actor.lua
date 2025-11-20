@@ -1,4 +1,5 @@
 Actor = Class:new({
+  spr_no = 0,
   x = 0,
   y = 0,
   last_x = 0,
@@ -15,9 +16,9 @@ Actor = Class:new({
       local y_offset = sin(t >> 1) * 1.5
       local spr_x = lerp(last_x, x, t) * 8
       local spr_y = lerp(last_y, y, t) * 8
-      spr(3, spr_x, spr_y + y_offset, 1, 1, flipped)
+      spr(spr_no, spr_x, spr_y + y_offset, 1, 1, flipped)
       return
     end
-    spr(3, x * 8, y * 8, 1, 1, flipped)
+    spr(spr_no, x * 8, y * 8, 1, 1, flipped)
   end
 })

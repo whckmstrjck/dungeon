@@ -1,1 +1,3 @@
-Goblin = Actor:new({})
+Goblin = Actor:new({
+  spr_no = 7
+})

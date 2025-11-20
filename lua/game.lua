@@ -3,6 +3,9 @@ Game = Class:new({
     tbl = tbl or {}
     tbl.player = Player:new({ x = 5, y = 3 })
     tbl.camera = Camera:new({ player = tbl.player })
+    tbl.monsters = {
+      Goblin:new({ x = 10, y = 9 })
+    }
 
     return setmetatable(
       tbl or {}, {
