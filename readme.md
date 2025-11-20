@@ -18,8 +18,9 @@ Dungeoning hard in Pico-8.
   - [ ] Dummy enemy to attack
   - [ ] Animation
   - [ ] Particles
-- [ ] Enemy class
+- [x] Enemy class
   - [ ] Basic movement
+  - [ ] Attack player
 
 ## Done
 
