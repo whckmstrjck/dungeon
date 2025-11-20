@@ -2,6 +2,7 @@ pico-8 cartridge // http://www.pico-8.com
 version 43
 __lua__
 #include lua/classes/class.lua
+#include lua/classes/actor.lua
 #include lua/classes/player.lua
 #include lua/classes/camera.lua
 

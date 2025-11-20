@@ -14,7 +14,6 @@ Dungeoning hard in Pico-8.
 
 ## To do
 
-- [ ] Buffered movement
 - [ ] Attack
   - [ ] Dummy enemy to attack
   - [ ] Animation
@@ -24,5 +23,6 @@ Dungeoning hard in Pico-8.
 
 ## Done
 
+- [x] Buffered movement
 - [x] Doors
 - [x] Init
