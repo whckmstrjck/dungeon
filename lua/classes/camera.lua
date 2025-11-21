@@ -4,8 +4,8 @@ Camera = Class:new({
   player = nil,
   follow_threshold = 0.5,
   update = function(_ENV)
-    local px = player.x * 8 - 64
-    local py = player.y * 8 - 64
+    local px = player.x * 8 + 4 - 64
+    local py = player.y * 8 + 4 - 64
 
     if x >= px + follow_threshold or x <= px - follow_threshold then
       x = lerp(x, px, .08)
