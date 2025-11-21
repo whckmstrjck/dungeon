@@ -1,6 +1,5 @@
 Player = Actor:new({
   spr_no = 3,
-  moved = false,
   buffered_dx = nil,
   buffered_dy = nil,
   check_collision = function(_ENV, new_x, new_y)
@@ -33,7 +32,7 @@ Player = Actor:new({
     end
 
     moving = moving_max
-    moved = true
+    G.game.player_moved = true
 
     if dx < 0 then flipped = true end
     if dx > 0 then flipped = false end
@@ -58,7 +57,7 @@ Player = Actor:new({
     end
   end,
   update = function(_ENV)
-    moved = false
+    G.game.player_moved = false
     moving = max(0, moving - 1)
 
     if moving == 0 then

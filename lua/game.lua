@@ -15,5 +15,7 @@ Game = Class:new({
   end,
 
   player = nil,
+  player_moved = false,
+  monsters_moving = false,
   monsters = {}
 })
