@@ -2,6 +2,7 @@ Player = Actor:new({
   spr_no = 3,
   buffered_dx = nil,
   buffered_dy = nil,
+
   check_collision = function(_ENV, new_x, new_y)
     if fget(mget(new_x, new_y)) == 1 then return 'wall' end
     if fget(mget(new_x, new_y)) == 2 then return 'door' end
@@ -14,6 +15,7 @@ Player = Actor:new({
 
     return nil
   end,
+
   open_door = function(_ENV, door_x, door_y)
     local door_tile = mget(door_x, door_y)
     if door_tile == 19 then
@@ -24,14 +26,15 @@ Player = Actor:new({
       sfx(2)
     end
   end,
+
   move = function(_ENV, dx, dy)
-    if moving > 0 then
+    if acting > 0 then
       buffered_dx = dx
       buffered_dy = dy
       return
     end
 
-    moving = moving_max
+    acting = moving_max
     G.game.player_moved = true
 
     if dx < 0 then flipped = true end
@@ -56,20 +59,13 @@ Player = Actor:new({
       y += dy
     end
   end,
-  update = function(_ENV)
-    G.game.player_moved = false
-    moving = max(0, moving - 1)
 
-    if moving == 0 then
-      last_x = x
-      last_y = y
-    end
-
+  after_update = function(_ENV)
     if G.game.monsters_moving then
       return
     end
 
-    if moving == 0 and (buffered_dx or buffered_dy) then
+    if acting == 0 and (buffered_dx or buffered_dy) then
       move(_ENV, buffered_dx, buffered_dy)
       buffered_dx = nil
       buffered_dy = nil

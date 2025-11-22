@@ -4,11 +4,27 @@ Actor = Class:new({
   y = 0,
   last_x = 0,
   last_y = 0,
-  moving = 0,
-  moving_max = 12,
   flipped = false,
+
+  acting = 0,
+  moving_max = 12,
+  attacking_max = 12,
+
   update = function(_ENV)
-    -- to be overridden by subclasses
+    if before_update then
+      before_update(_ENV)
+    end
+
+    acting = max(0, acting - 1)
+
+    if acting == 0 then
+      last_x = x
+      last_y = y
+    end
+
+    if after_update then
+      after_update(_ENV)
+    end
   end,
   draw = function(_ENV)
     local spr_x, spr_y = 0
@@ -16,8 +32,8 @@ Actor = Class:new({
     local t_bounce = 1
     local y_offset = 0
 
-    if moving > 0 then
-      t = (moving_max - moving) / moving_max
+    if acting > 0 then
+      t = (moving_max - acting) / moving_max
       t_bounce = sin((t + 1) >> 1)
       y_offset = t_bounce * -3
 
@@ -39,5 +55,7 @@ Actor = Class:new({
       8,
       flipped
     )
+
+    print(acting, spr_x - 4, spr_y - 10)
   end
 })
