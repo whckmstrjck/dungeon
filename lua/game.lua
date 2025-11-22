@@ -7,11 +7,7 @@ Game = Class:new({
       Goblin:new({ x = 10, y = 9 })
     }
 
-    return setmetatable(
-      tbl or {}, {
-        __index = _ENV
-      }
-    )
+    return setmetatable(tbl or {}, { __index = _ENV })
   end,
 
   player = nil,

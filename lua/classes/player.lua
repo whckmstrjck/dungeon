@@ -65,6 +65,10 @@ Player = Actor:new({
       last_y = y
     end
 
+    if G.game.monsters_moving then
+      return
+    end
+
     if moving == 0 and (buffered_dx or buffered_dy) then
       move(_ENV, buffered_dx, buffered_dy)
       buffered_dx = nil
