@@ -1,4 +1,12 @@
 Actor = Class:new({
+  new = function(_ENV, tbl)
+    tbl = tbl or {}
+    tbl.last_x = tbl.x
+    tbl.last_y = tbl.y
+
+    return setmetatable(tbl or {}, { __index = _ENV })
+  end,
+
   spr_no = 0,
   x = 0,
   y = 0,
@@ -7,8 +15,7 @@ Actor = Class:new({
   flipped = false,
 
   acting = 0,
-  moving_max = 12,
-  attacking_max = 12,
+  acting_max = 12,
 
   update = function(_ENV)
     if before_update then
@@ -26,6 +33,7 @@ Actor = Class:new({
       after_update(_ENV)
     end
   end,
+
   draw = function(_ENV)
     local spr_x, spr_y = 0
     local t = 0
@@ -33,7 +41,7 @@ Actor = Class:new({
     local y_offset = 0
 
     if acting > 0 then
-      t = (moving_max - acting) / moving_max
+      t = (acting_max - acting) / acting_max
       t_bounce = sin((t + 1) >> 1)
       y_offset = t_bounce * -3
 

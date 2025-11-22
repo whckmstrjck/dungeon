@@ -1,11 +1,7 @@
 function _update60()
   game.player:update()
 
-  if game.player_moved then
-    game.monsters_moving = true
-    for monster in all(game.monsters) do
-      monster:update()
-    end
-    game.monsters_moving = false
+  if game.monsters_to_act then
+    game.monsters_to_act[1]:update()
   end
 end

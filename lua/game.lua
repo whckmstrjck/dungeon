@@ -12,7 +12,23 @@ Game = Class:new({
   end,
 
   player = nil,
-  player_moved = false,
-  monsters_moving = false,
-  monsters = {}
+
+  player_acted = function(_ENV)
+    monsters_to_act = {}
+
+    for monster in all(monsters) do
+      monster.acting = monster.acting_max
+      add(monsters_to_act, monster)
+    end
+  end,
+
+  monster_is_done = function(_ENV, monster)
+    del(monsters_to_act, monster)
+    if #monsters_to_act == 0 then
+      monsters_to_act = nil
+    end
+  end,
+
+  monsters = {},
+  monsters_to_act = nil
 })

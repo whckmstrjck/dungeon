@@ -34,8 +34,8 @@ Player = Actor:new({
       return
     end
 
-    acting = moving_max
-    G.game.player_moved = true
+    acting = acting_max
+    G.game:player_acted()
 
     if dx < 0 then flipped = true end
     if dx > 0 then flipped = false end
@@ -61,7 +61,7 @@ Player = Actor:new({
   end,
 
   after_update = function(_ENV)
-    if G.game.monsters_moving then
+    if G.game.monsters_to_act then
       return
     end
 
