@@ -1,4 +1,5 @@
 Player = Actor:new({
+  type = "player",
   spr_no = 3,
   buffered_dx = nil,
   buffered_dy = nil,
@@ -27,6 +28,10 @@ Player = Actor:new({
     end
   end,
 
+  get_done_acting = function(_ENV)
+    return acting == 0 and acting_previous == 1
+  end,
+
   move = function(_ENV, dx, dy)
     if acting > 0 then
       buffered_dx = dx
@@ -35,7 +40,6 @@ Player = Actor:new({
     end
 
     acting = acting_max
-    G.game:player_acted()
 
     if dx < 0 then flipped = true end
     if dx > 0 then flipped = false end
@@ -63,6 +67,10 @@ Player = Actor:new({
   after_update = function(_ENV)
     if G.game.monsters_to_act then
       return
+    end
+
+    if get_done_acting(_ENV) then
+      G.game:player_acted()
     end
 
     if acting == 0 and (buffered_dx or buffered_dy) then

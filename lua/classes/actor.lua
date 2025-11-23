@@ -7,6 +7,7 @@ Actor = Class:new({
     return setmetatable(tbl or {}, { __index = _ENV })
   end,
 
+  type = "actor",
   spr_no = 0,
   x = 0,
   y = 0,
@@ -15,6 +16,7 @@ Actor = Class:new({
   flipped = false,
 
   acting = 0,
+  acting_previous = 0,
   acting_max = 12,
 
   update = function(_ENV)
@@ -22,6 +24,7 @@ Actor = Class:new({
       before_update(_ENV)
     end
 
+    acting_previous = acting
     acting = max(0, acting - 1)
 
     if acting == 0 then
